@@ -1,0 +1,18 @@
+# Data and Results
+DATA/
+00_*/
+01_*/
+02_*/
+03_*/
+04_*/
+05_*/
+
+# Python/Environment
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+scratch/
+fix_dirs*.py
+
+# OS
+.DS_Store
