@@ -24,14 +24,21 @@ This guide provides detailed definitions for the terms, axes, and metrics used t
 ## 📈 Plot Interpretation
 
 ### Validation Landscape (`scientific_validation_landscape.png`)
-*   **Green Zone (Top Right)**: High-fidelity binders. These poses are both physically stable and chemically consistent.
-*   **Bottom Left**: Docking artifacts or transient binders that dissociate under force.
+*   **X-Axis**: PoseScore (Stability) | **Y-Axis**: Persistence (Life-time of contacts).
+*   **What you should see**: 
+    *   **Ideal Result**: Points clustered in the **Green shaded region**. This indicates your top docking poses are structurally robust and chemically persistent.
+    *   **Red Flag**: All points in the bottom-left corner. This suggests the docking results are stochastic artifacts and the ligand is likely "flopping" in the pocket.
 
-### Structural Anchor Profiles (`interaction_profile_*.png`)
-*   **X-Axis**: Residue name (e.g., ASP125).
-*   **Y-Axis**: Interaction Frequency (%).
-*   **Stacking**: Shows the contribution of different interaction types (H-Bond, Salt-Bridge, Pi-Stacking).
-*   **Interpretation**: Residues with high, stacked bars across many poses are your **Structural Anchors**.
+### Interaction Profiles (`interaction_profile_*.png`)
+*   **X-Axis**: Residue | **Y-Axis**: Frequency (%) | **Stacking**: Interaction Type.
+*   **What you should see**: 
+    *   **Ideal Result**: A few very high bars (e.g., >80%) that are consistent across your most stable ligands. This identifies the **"Conserved Binding Motif."**
+    *   **Red Flag**: Many tiny bars across many different residues. This indicates a "Fuzzy Binder" with no clear structural preference.
+
+### Energy Refinement (`docking_refinement_comparison.png`)
+*   **X-Axis**: Score (Negative) | **Y-Axis**: Specific Pose.
+*   **What you should see**: 
+    *   **Ideal Result**: Significant "vector" shifts where the BPMD refined score (blue/green) is more favorable than the initial GlideScore. This confirms that metadynamics refinement is successfully optimizing the binding pose beyond the static docking grid.
 
 ---
 
