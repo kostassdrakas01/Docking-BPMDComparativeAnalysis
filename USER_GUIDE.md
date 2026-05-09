@@ -37,6 +37,9 @@ This guide provides detailed definitions for the terms, axes, and metrics used t
 
 ## 🧬 Scientific Classifications
 
-*   **High Fidelity Anchor**: A bioactive candidate that is both stable and maintains a consistent interaction network.
-*   **Stable Binding Mode**: A physically reasonable orientation that fits well but may lack a single dominant, permanent interaction.
-*   **Metastable / Artifact**: Poses that drift or fail to maintain contacts under metadynamics stress.
+*   **High Fidelity Anchor** (`PoseScore > 1.5` AND `Persistence > 1.0`)
+    *   **Meaning**: A bioactive candidate. The ligand is geometrically locked in place and its specific interaction network (H-bonds/Salt-bridges) is strong enough to resist metadynamics unbinding forces throughout the simulation.
+*   **Stable Binding Mode** (`PoseScore > 1.0`)
+    *   **Meaning**: A physically reasonable orientation. The ligand fits well in the pocket and does not clash, but it may lack the rigid, long-lived specific interactions required for High Fidelity.
+*   **Metastable / Artifact** (`PoseScore < 1.0`)
+    *   **Meaning**: Poses that drift significantly or dissociate early in the simulation. These are likely artifacts of the docking grid and should not be used for drug design decisions.
